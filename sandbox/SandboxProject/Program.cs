@@ -48,8 +48,16 @@ namespace SandboxProject
                             board[choice - 1] = currentPlayer;
                         }
                     }
-
-                ChangeTurn(currentPlayer);
+                    
+                //switch players after every move
+                if (currentPlayer == "x")
+                {
+                    currentPlayer = "o";
+                }
+                else
+                {
+                    currentPlayer = "x";
+                }
 
                 CheckForWin(currentPlayer, board);
                     break;
@@ -88,18 +96,8 @@ namespace SandboxProject
                 }
             }
 
-            //switch players after every move
-            static string ChangeTurn(string currentPlayer)
-            {
-                if (currentPlayer == "x")
-                {
-                    return "o";
-                }
-                    else
-                {
-                    return "x";
-                }
-            }
+            
+            
 
             static void DisplayBoard(List<string> board)
 
