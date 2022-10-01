@@ -8,6 +8,7 @@ namespace SandboxProject
         static void Main(string[] args)
         {   
             string currentPlayer = "o";
+            bool gameEnd = false;
 
             var board = new List<string>();
                 //Adding to my board
@@ -24,7 +25,7 @@ namespace SandboxProject
 
             DisplayBoard(board);
 
-            while (true)
+            while (gameEnd == false)
             {
                 Console.Clear();
                 DisplayBoard(board);
@@ -32,11 +33,25 @@ namespace SandboxProject
                 Console.Write("Please enter choice (1-9)");
                 int choice = int.Parse(Console.ReadLine());
 
-                board[choice - 1] = currentPlayer;
+                    for (int i = 0; i < 9; i++)
+                    {
+                        if (board[i] == "x" || board[i] == "o")
+                        {
+                            Console.WriteLine("Choose another number.");
+                            int choice = int.Parse(Console.ReadLine());
+                            board[choice - 1] = currentPlayer;
+                        }
+                        
+                        else
+                        {
+                            board[choice - 1] = currentPlayer;
+                        }
+                    }
 
                 ChangeTurn(currentPlayer);
 
                 CheckForWin(currentPlayer, board);
+                    break;
             }
            
      
