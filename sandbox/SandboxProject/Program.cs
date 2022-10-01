@@ -25,6 +25,7 @@ namespace SandboxProject
 
             DisplayBoard(board);
 
+            //StartGame
             while (gameEnd == false)
             {
                 Console.Clear();
@@ -58,7 +59,7 @@ namespace SandboxProject
 
 
 
-                // Check for win
+            // Check for win
             static string CheckForWin(string currentPlayer, List<string> board)
             {
                 if (board[0] == currentPlayer && board[1] == currentPlayer && board[2] == currentPlayer)
@@ -87,8 +88,7 @@ namespace SandboxProject
                 }
             }
 
-
-
+            //switch players after every move
             static string ChangeTurn(string currentPlayer)
             {
                 if (currentPlayer == "x")
@@ -104,17 +104,13 @@ namespace SandboxProject
             static void DisplayBoard(List<string> board)
 
             {
-
                 Console.WriteLine($"{board[0]}|{board[1]}|{board[2]}");
                 Console.WriteLine("-+-+-");
                 Console.WriteLine($"{board[3]}|{board[4]}|{board[5]}");
                 Console.WriteLine("-+-+-");
                 Console.WriteLine($"{board[6]}|{board[7]}|{board[8]}");
-                Console.WriteLine("-+-+-");
             }
         }
-
-        
         
         static void DisplayGreeting()
         {
